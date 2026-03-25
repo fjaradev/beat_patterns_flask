@@ -12,5 +12,5 @@ A web application designed for rhythm training and practice. This app generates 
 ## Tech Stack
 
 This project is built using:
-- **Backend**: Python with [FastAPI](https://fastapi.tiangolo.com/)
+- **Backend**: Python with Flask
 - **Frontend**: HTML, CSS, JavaScript (served via Jinja2 templates)
