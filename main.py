@@ -35,7 +35,7 @@ def home():
     sequencer.generate_pattern()
     return render_template("index.html", pattern=sequencer.pattern)
 
-@app.route("/generate-pattern")
+@app.route("/generate-pattern", methods=["GET", "POST"])
 def generate_pattern():
     sequencer.generate_pattern()
     return render_template("beat_pattern.html", pattern=sequencer.pattern)
