@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Beat-Patterns Sequencer
+{% endblock title%}
+
+{% block content %}
+    <h1>Beat-Patterns</h1>
+    
+        <!-- Control Panel -->
+    <div class="controls">
+        <button id="generate-btn" hx-post="{{ url_for('generate_pattern') }}" hx-target=".grid-container" hx-swap="outerHTML">Generate New Pattern</button>
+
+        <a href="{{ url_for('app_set_up') }}"><button>Settings</button></a>
+        
+        <div class="tempo-section">
+            <label for="tempo-slider">Tempo</label>
+            <input type="range" id="bpm-slider" min="60" max="200" value="120">
+            <span class="tempo-display" id="tempo-value">120 BPM</span>
+        </div>
+
+        <button id="start-btn">Start</button>
+        <button id="repeat-btn">
+            <img src="{{ url_for('static', filename='/images/repeat.svg') }}" alt="Repeat button" class="icon-btn active-state">
+        </button>
+    </div>
+
+    {% include 'beat_pattern.html' %}
+    
+{% endblock content %}

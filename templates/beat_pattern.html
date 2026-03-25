@@ -1,0 +1,7 @@
+<div class="grid-container" id="grid">
+    {% for beat in pattern %}
+    <div id="cell-{{ loop.index0 }}" class="grid-cell" data-subdivision="{{ beat }}">
+        <img src="{{ url_for('static', filename='/images/' + (beat|string) + '.png') }}" alt="beat pattern cell">
+    </div>
+    {% endfor %}
+</div>

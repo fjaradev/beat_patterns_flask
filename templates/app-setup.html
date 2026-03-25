@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+App Set-up
+{% endblock title%}
+
+{% block content %}
+    <h1>Patterns Settings</h1>
+    <div class="set-up-container">
+        <p>Select the subdivitions that you want to have in your pattern, you must select at least one.</p>
+        <form action="/confirm-selection" method="POST" onsubmit="return validateSelection()">
+            <div class="set-up-images-container">
+                {% for _ in range(4) %}
+                <label class="image-option">
+                    <input type="checkbox" name="selected_ids" value="{{loop.index}}" class="hidden-check">
+                    <img class="set-up-img" src="{{ url_for('static', filename='/images/' + (loop.index|string) + '.png') }}"
+                        alt="{{ 'pattern number ' + 'i' }}">
+                </label>
+                {% endfor %}
+            </div>
+            <button type="submit">Confirm selections</button>
+        </form>
+    </div>
+
+    <script>
+        function validateSelection() {
+            const checkboxes = document.querySelectorAll('input[name="selected_ids"]:checked');
+            if (checkboxes.length === 0) {
+                alert("Please select at least one image!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+{% endblock content %}
