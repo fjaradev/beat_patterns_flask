@@ -39,7 +39,6 @@ def app_set_up():
 @app.route("/confirm-selection", methods=["GET", "POST"])
 def confirm_selection():
     if request.method == "POST":
-        print(session["active_subdivisions"])
         session["active_subdivisions"] = request.form.getlist("selected_ids")
     return redirect("/", code=303)
     
