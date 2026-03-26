@@ -9,7 +9,7 @@ Beat-Patterns Sequencer
     
         <!-- Control Panel -->
     <div class="controls">
-        <button id="generate-btn" hx-post="{{ url_for('generate_pattern') }}" hx-target=".grid-container" hx-swap="outerHTML">Generate New Pattern</button>
+        <button id="generate-btn" hx-post="{{ url_for('generate_new_pattern') }}" hx-target=".grid-container" hx-swap="outerHTML">Generate New Pattern</button>
 
         <a href="{{ url_for('app_set_up') }}"><button>Settings</button></a>
         
